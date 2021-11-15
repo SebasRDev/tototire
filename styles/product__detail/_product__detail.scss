@@ -1,0 +1,164 @@
+.product__detail{
+  .product__detail__wrapper{
+    display: flex;
+    height: 80vh;
+
+    .product__detail__gallery{
+      width: 50%;
+
+      .mySwiper2{
+        width: 100%;
+        height: 80%;
+        overflow: hidden;
+
+        .swiper-wrapper {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          z-index: 1;
+          display: flex;
+          transition-property: transform;
+          box-sizing: content-box;
+
+          .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+            flex-shrink: 0;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transition-property: transform;
+            background-size: cover;
+            background-position: center;
+            
+            max-width: 100%;
+            overflow: hidden;
+          }
+        }
+      }
+
+      .mySwiper{
+        overflow: hidden;
+        .swiper-wrapper{
+          display: flex;
+        }
+        .swiper-slide{
+          overflow: hidden;
+          flex-shrink: 0;
+          img{
+            width: 100%;
+          }
+        }
+      }
+    }
+  
+    .product__detail__data{
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+      color: $white;
+      position: relative;
+
+      &::after{
+        content: '';
+        position: absolute;
+        width: 50vw;
+        height: 100%;
+        background-color: $primary;
+        left: 0;
+        top: 0;
+        z-index: -1;
+        clip-path: polygon(10% 0%, 100% 0, 100% 100%, 0% 100%);
+      }
+
+      .tire__name{
+
+        h3{
+          text-align: right;
+          @include montserrat-medium;
+          font-size: 50px;
+          line-height: 1;
+        }
+
+        h1{
+          text-align: right;
+          @include montserrat-bold;
+          font-size:70px;
+          line-height: 1;
+        }
+      }
+
+      .tire__sizes{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        margin-top: 30px;
+
+        p{
+          @include montserrat-medium;
+          font-size: 25px;
+          line-height: 1.2;
+        }
+
+        .buttons__wrapper{
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          padding-top: 15px;
+        }
+      }
+
+      .buy__tire{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 90%;
+        margin-top: 30px;
+
+        .label{
+          width: 100%;
+          @include nunito-medium;
+          font-size: 12px;
+          line-height: 1;
+          margin-bottom: 20px;
+          text-align: right;
+        }
+
+        .price{
+          width: 40%;
+          @include nunito-medium;
+          font-size: 20px;
+          line-height: 1;
+          display: flex;
+          align-items: flex-end;
+    
+          span{
+            @include nunito-medium;
+            font-size:50px;
+          }
+        }
+
+        button{
+          width: 40%;
+        }
+      }
+      
+    }
+
+  }
+}

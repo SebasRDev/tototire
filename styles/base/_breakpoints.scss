@@ -1,0 +1,5 @@
+@mixin tablet-portrait {
+  @media screen and (min-width: $tablet) {
+    @content;
+  }
+}

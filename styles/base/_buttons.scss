@@ -1,0 +1,31 @@
+.btn{
+  appearance: none;
+  border: 0;
+  background-color: transparent;
+  color: $white;
+  padding: 5px 20px;
+  border: 2px solid $white;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover{
+    color: $primary;
+    background-color: $white;
+  }
+
+  &--action{
+    background-color: $secondary;
+    border: none;
+    border-radius: 0;
+    clip-path: polygon(14% 0%, 100% 0, 100% 100%, 0 100%, 0 41%);
+    @include nunito-bold;
+    font-size: 30px;
+    line-height: 1;
+
+    &:hover{
+      color: $white;
+      background-color: $secondary;
+    }
+  }
+}

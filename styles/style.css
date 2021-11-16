@@ -3,6 +3,7 @@
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  font-size: 16px;
 }
 
 .container {
@@ -505,5 +506,78 @@ header .header__wrapper .header__options nav .menu--active {
   .categories .categories__wrapper .card--large {
     grid-column: span 2;
   }
+}
+
+.card__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.product__card {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 0px 12px 10px -10px rgba(0, 0, 0, 0.6);
+          box-shadow: 0px 12px 10px -10px rgba(0, 0, 0, 0.6);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  position: relative;
+}
+
+.product__card::after {
+  background-color: #789696;
+  content: '';
+  height: 220px;
+  left: 0;
+  position: absolute;
+  top: 40px;
+  width: 100%;
+  z-index: -1;
+}
+
+.product__card .tire__brand {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: #ec1c20;
+  font-size: 1.9rem;
+  margin: 10px 0;
+  text-transform: uppercase;
+}
+
+.product__card .tire__ref {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  color: #63666A;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.product__card .price {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  color: #051026;
+  font-size: 2.8rem;
+  line-height: 1.4;
+}
+
+.product__card .button__wrapper {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  margin-top: 15px;
+}
+
+.footer__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 /*# sourceMappingURL=style.css.map */

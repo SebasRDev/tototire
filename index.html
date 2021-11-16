@@ -152,9 +152,27 @@
   <section class="cards">
     <div class="container">
       <div class="card__wrapper">
-        <div class="card">
+        <div class="product__card">
           <img src="./images/NoPath - copia (14).png" alt="tire" />
-          <h2>Bridgestone</h2>
+          <h2 class="tire__brand">Bridgestone</h2>
+          <p class="tire__ref">Ecopia</p>
+          <p class="price">$855.000</p>
+          <div class="button__wrapper">
+            <button class="btn btn--action">Detalles</button>
+          </div>
+        </div>
+        <div class="product__card">
+          <img src="./images/NoPath - copia (14).png" alt="tire" />
+          <h2 class="tire__brand">Bridgestone</h2>
+          <p class="tire__ref">Ecopia</p>
+          <p class="price">$855.000</p>
+          <div class="button__wrapper">
+            <button class="btn btn--action">Detalles</button>
+          </div>
+        </div>
+        <div class="product__card">
+          <img src="./images/NoPath - copia (14).png" alt="tire" />
+          <h2 class="tire__brand">Bridgestone</h2>
           <p class="tire__ref">Ecopia</p>
           <p class="price">$855.000</p>
           <div class="button__wrapper">
@@ -168,7 +186,7 @@
 
 
   <footer>
-    <div class="conatiner">
+    <div class="container">
       <div class="footer__wrapper">
         <div class="footer__logos">
 
@@ -203,24 +221,7 @@
 
 
   <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-  
-  <script>
-    var swiper = new Swiper(".specials__swiper", {
-      slidesPerView: 1,
-      spaceBetween: 20,
-      centeredSlides: true,
-      breakpoints: {
-          768: {
-            slidesPerView: 3,
-            spaceBetween: 100,
-          }
-        },
-      //pagination: {
-        //el: ".swiper-pagination",
-        //clickable: true,
-      //},
-    });
-  </script>
+  <script src="./scritps/script.js"></script>
 
 </body>
 </html>

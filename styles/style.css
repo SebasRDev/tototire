@@ -1010,13 +1010,22 @@ header .header__wrapper .header__options nav .menu--active {
   }
 }
 
+.medidor {
+  width: 300px;
+  height: 200px;
+  position: relative;
+}
+
 .test__animations {
-  width: 150px;
+  width: 120px;
   height: 8px;
   background-color: #ec1c20;
-  -webkit-transform-origin: 100% 50%;
-          transform-origin: 100% 50%;
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
+  -webkit-transform-origin: 0 50%;
+          transform-origin: 0 50%;
+  -webkit-transform: rotate(-190deg);
+          transform: rotate(-190deg);
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
 }
 /*# sourceMappingURL=style.css.map */

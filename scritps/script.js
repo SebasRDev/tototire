@@ -23,3 +23,18 @@ var swiperServices = new Swiper(".services__swiper", {
   },
   effect: "fade",
 });
+
+var swiperDetailThumb= new Swiper(".product__swiper__thumb", {
+  spaceBetween: 30,
+  slidesPerView: 3,
+});
+var swiperDetail = new Swiper(".product__swiper__detail", {
+  spaceBetween: 40,
+  thumbs: {
+    swiper: swiperDetailThumb,
+  },
+  pagination: {
+    el: ".detail__pagination",
+    clickable: true,
+  },
+});

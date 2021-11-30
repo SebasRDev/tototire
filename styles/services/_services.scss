@@ -5,21 +5,29 @@
     position: relative;
     padding: 2rem;
     background-color: rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+
+    .container{
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      align-items: flex-end;
+    }
   }
 
   .services__background{
     position: absolute;
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 100%;
     top: 0;
-    left: 0;
+    left: -50%;
     z-index: -1;
   }
 
   .services__item__content{
     .services__item__title{
       @include montserrat-bold;
-      font-size: 3rem;
+      font-size: 2rem;
       line-height: 1.1;
       color: $white;
       text-transform: uppercase;
@@ -28,7 +36,7 @@
 
     .services__item__description{
       @include nunito-regular;
-      font-size:1.1rem;
+      font-size:1rem;
       line-height: 1.4;
       color: $white;
 
@@ -45,11 +53,6 @@
   .services__swiper{
     .services__item{
       padding: 4rem 2rem;
-
-      .container{
-        display: flex;
-        height: 100%;
-      }
 
       .services__item__content{
         width: 60%;
@@ -85,6 +88,22 @@
           align-items: flex-start;
         }
       }
+    }
+
+    .services__item__content{
+      .services__item__title{
+        font-size: 3rem;
+      }
+  
+      .services__item__description{
+        font-size: 1.1rem;
+      }
+    }
+
+    .services__background{
+      width: 100%;
+      height: auto;
+      left: 0;
     }
 
     .swiper-button-next{

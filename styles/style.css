@@ -712,21 +712,35 @@ header .header__wrapper .header__options nav .menu--active {
   position: relative;
   padding: 2rem;
   background-color: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.services__swiper .services__item .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 
 .services__swiper .services__background {
   position: absolute;
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 100%;
   top: 0;
-  left: 0;
+  left: -50%;
   z-index: -1;
 }
 
 .services__swiper .services__item__content .services__item__title {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  font-size: 3rem;
+  font-size: 2rem;
   line-height: 1.1;
   color: #ffffff;
   text-transform: uppercase;
@@ -736,7 +750,7 @@ header .header__wrapper .header__options nav .menu--active {
 .services__swiper .services__item__content .services__item__description {
   font-family: 'Nunito', sans-serif;
   font-weight: 400;
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1.4;
   color: #ffffff;
 }
@@ -749,12 +763,6 @@ header .header__wrapper .header__options nav .menu--active {
 @media screen and (min-width: 768px) {
   .services__swiper .services__item {
     padding: 4rem 2rem;
-  }
-  .services__swiper .services__item .container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    height: 100%;
   }
   .services__swiper .services__item .services__item__content {
     width: 60%;
@@ -792,6 +800,17 @@ header .header__wrapper .header__options nav .menu--active {
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
+  }
+  .services__swiper .services__item__content .services__item__title {
+    font-size: 3rem;
+  }
+  .services__swiper .services__item__content .services__item__description {
+    font-size: 1.1rem;
+  }
+  .services__swiper .services__background {
+    width: 100%;
+    height: auto;
+    left: 0;
   }
   .services__swiper .swiper-button-next {
     right: 50px;

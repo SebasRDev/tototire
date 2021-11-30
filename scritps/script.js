@@ -15,3 +15,11 @@ var swiper = new Swiper(".specials__swiper", {
     //clickable: true,
   //},
 });
+
+var swiperServices = new Swiper(".services__swiper", {
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  effect: "fade",
+});

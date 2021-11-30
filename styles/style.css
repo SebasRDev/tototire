@@ -580,4 +580,224 @@ header .header__wrapper .header__options nav .menu--active {
   display: -ms-flexbox;
   display: flex;
 }
+
+.aboutus__wrapper {
+  background-color: #F5F5F5;
+  padding: 2rem;
+}
+
+.aboutus__wrapper h1 {
+  color: #ec1c20;
+  text-transform: uppercase;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 2rem;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+}
+
+.aboutus__wrapper .aboutus__misions .aboutus__misions__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 32px;
+  margin-bottom: 2.5rem;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.aboutus__wrapper .aboutus__misions .aboutus__misions__item img {
+  width: 100%;
+}
+
+.aboutus__wrapper .aboutus__misions .aboutus__misions__item h3 {
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  color: #ec1c20;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.aboutus__wrapper .aboutus__misions .aboutus__misions__item p {
+  color: #63666A;
+  font-size: 1.125rem;
+  line-height: 1.1;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 400;
+}
+
+.aboutus__wrapper .business__value__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 32px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.aboutus__wrapper .business__value__wrapper .business__value {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.aboutus__wrapper .business__value__wrapper .business__value h3 {
+  color: #ec1c20;
+  text-align: center;
+  margin: 10px 0 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1.1;
+}
+
+.aboutus__wrapper .business__value__wrapper .business__value p {
+  color: #63666A;
+  font-size: 1rem;
+  line-height: 1.1;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 400;
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .aboutus__wrapper {
+    border-radius: 12px;
+    padding: 2.5rem 2.5rem 5rem;
+  }
+  .aboutus__wrapper h1 {
+    font-size: 2.5rem;
+    margin-bottom: 4rem;
+  }
+  .aboutus__wrapper .aboutus__misions {
+    gap: 40px;
+  }
+  .aboutus__wrapper .aboutus__misions .aboutus__misions__item {
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+  }
+  .aboutus__wrapper .aboutus__misions .aboutus__misions__item img {
+    width: auto;
+  }
+  .aboutus__wrapper .business__value__wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 72px;
+    width: 90%;
+    margin: auto;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+
+.services__swiper {
+  height: calc(100vh - 80px);
+}
+
+.services__swiper .services__item {
+  position: relative;
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.services__swiper .services__background {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.services__swiper .services__item__content .services__item__title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 3rem;
+  line-height: 1.1;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.services__swiper .services__item__content .services__item__description {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  color: #ffffff;
+}
+
+.services__swiper .swiper-button-next,
+.services__swiper .swiper-button-prev {
+  color: #ffffff;
+}
+
+@media screen and (min-width: 768px) {
+  .services__swiper .services__item {
+    padding: 4rem 2rem;
+  }
+  .services__swiper .services__item .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 100%;
+  }
+  .services__swiper .services__item .services__item__content {
+    width: 60%;
+  }
+  .services__swiper .services__item--bottom-right .container {
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    text-align: right;
+  }
+  .services__swiper .services__item--top-right .container {
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    text-align: right;
+  }
+  .services__swiper .services__item--bottom-left .container {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+  }
+  .services__swiper .services__item--top-left .container {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  .services__swiper .swiper-button-next {
+    right: 50px;
+  }
+  .services__swiper .swiper-button-prev {
+    left: 50px;
+  }
+}
 /*# sourceMappingURL=style.css.map */

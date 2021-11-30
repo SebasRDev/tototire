@@ -1,0 +1,151 @@
+.detail{
+  height: calc(100vh - 80px);
+  overflow: hidden;
+
+  .container{
+    height: 100%;
+  }
+}
+
+.detail__wrapper{
+  display: flex;
+  height: 100%;
+
+  .tire__info{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+    color: $white;
+
+    .tire__name{
+      h2{
+        @include montserrat-medium;
+        text-transform: uppercase;
+        line-height:1.2;
+      }
+      h1{
+        @include montserrat-bold;
+        text-transform: uppercase;
+        line-height: 1.1;
+      }
+    }
+
+    .tire__references{
+      display: flex;
+      flex-wrap: wrap;
+      
+      p{
+        @include montserrat-medium;
+        line-height:1.1;
+        text-transform: uppercase;
+      }
+
+      .tire__references__wrapper{
+        width: 90%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 1.5rem;
+      }
+    }
+
+    .tire__price{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      align-items: flex-end;
+
+      .disclaimer{
+        width: 100%;
+        @include montserrat-light;
+        font-size: 0.8rem;
+        margin-bottom: 1rem;
+      }
+
+      .price__label{
+        @include nunito-medium;
+        font-size: 1.3rem;
+        line-height:1;
+        text-transform: uppercase;
+        margin-right: 0.6rem;
+      }
+      
+      .price{
+        @include nunito-medium;
+        font-size: 3rem;
+        line-height:1;
+        margin-right: 2rem;
+      }
+
+      .btn{
+        height: 3rem;
+      }
+    }
+  }
+}
+
+@include tablet-portrait{
+  .detail__wrapper{
+    .tire__info{
+      max-width: 660px;
+      position: relative;
+      text-align: right;
+      
+      &::after{
+        content: '';
+        background-color: $primary;
+        width: 60vw;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+      }
+
+      &::before{
+        content: '';
+        position: absolute;
+        width: 12%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: $white;
+        clip-path: polygon(0% 0%, 0% 100%, 0 100%, 100% 0%);
+      }
+
+      .tire__name{
+        h2{
+          font-size:2rem;
+        }
+
+        h1{
+          font-size: 3.5rem;
+        }
+      }
+
+      .tire__references{
+        justify-content: flex-end;
+        p{
+          font-size:1.5rem;
+          margin-bottom: 1rem;
+        }
+      }
+    }
+
+    .tire__gallery{
+      flex-grow: 1;
+      padding: 300px 0 0;
+
+    }
+  }
+}
+
+
+.test__animations{
+  width: 150px;
+  height: 8px;
+  background-color: $primary;
+  transform-origin: 100% 50%;
+  transform: rotate(90deg);
+}

@@ -4,16 +4,18 @@ var swiper = new Swiper(".specials__swiper", {
   slidesPerView: 1,
   spaceBetween: 20,
   centeredSlides: true,
+  loop: true,
   breakpoints: {
-      768: {
-        slidesPerView: 3,
-        spaceBetween: 100,
-      }
-    },
-  //pagination: {
-    //el: ".swiper-pagination",
-    //clickable: true,
-  //},
+    768: {
+      slidesPerView: 3,
+      spaceBetween: 100,
+    }
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    dynamicBullets: true,
+    clickable: true
+  }
 });
 
 var swiperServices = new Swiper(".services__swiper", {

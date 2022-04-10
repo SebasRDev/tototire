@@ -1208,7 +1208,9 @@ header .header__wrapper .header__options nav .menu--active {
   bottom: 0;
   width: 95%;
   height: 90%;
-  left: 2.5%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
   border-radius: 12px 12px 0 0;
   background-color: #ffffff;
   padding: 35px 20px 0;
@@ -1291,7 +1293,7 @@ header .header__wrapper .header__options nav .menu--active {
 }
 
 .cart__wrapper .cart__content .cart__data .cart__element img {
-  width: 80px;
+  max-width: 100px;
   padding-right: 10px;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
@@ -1445,5 +1447,57 @@ header .header__wrapper .header__options nav .menu--active {
       -ms-flex-pack: center;
           justify-content: center;
   margin: 15px 0;
+}
+
+@media screen and (min-width: 768px) {
+  .cart__wrapper .cart__content {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    gap: 20px 0;
+    max-width: 1000px;
+    max-height: 650px;
+  }
+  .cart__wrapper .cart__content .cart__data {
+    height: 85%;
+    margin-right: 20px;
+  }
+  .cart__wrapper .cart__content .cart__data::-webkit-scrollbar {
+    width: 6px;
+  }
+  .cart__wrapper .cart__content .cart__data::-webkit-scrollbar-track {
+    background: #EEECEC;
+    border-radius: 5px;
+  }
+  .cart__wrapper .cart__content .cart__data::-webkit-scrollbar-thumb {
+    background: #051026;
+    border-radius: 5px;
+  }
+  .cart__wrapper .cart__content .cart__data .cart__element img {
+    max-width: 200px;
+  }
+  .cart__wrapper .cart__content .cart__prices {
+    padding-top: 0;
+    padding-left: 20px;
+    border-top: none;
+    border-left: 1px solid #789696;
+    height: 85%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  .cart__wrapper .cart__content .cart__prices a {
+    margin-bottom: 0;
+  }
 }
 /*# sourceMappingURL=style.css.map */

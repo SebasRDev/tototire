@@ -1,0 +1,12 @@
+.special__button {
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  color: var(--white);
+  background-color: var(--secondary);
+  text-decoration: none;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+}

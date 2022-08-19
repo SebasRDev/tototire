@@ -1,0 +1,108 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  background-color: var(--white);
+  height: 65px;
+}
+
+.desktopMenu {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .desktopMenu{
+    display: block;
+  }
+
+  .desktopMenu ul {
+    display: flex;
+    list-style: none;
+    gap: 16px;
+    padding: 0;
+  }
+
+  .desktopMenu a{
+    padding: 10px 0;
+    border-bottom: 2px solid transparent;
+  }
+
+  .desktopMenu a.active,
+  .desktopMenu a:hover{
+    border-bottom-color: var(--primary);
+  }
+}
+
+.burguer{
+  position: relative;
+  width: 25px;
+  height: 20px;
+}
+
+.mobileMenu ul{
+  display: none;
+}
+
+.burguer span{
+  position: absolute;
+  width: 25px;
+  height: 2px;
+  background-color: var(--secondary);
+  border-radius: 1px;
+  transition: all 0.3s ease;
+}
+
+.burguer span:nth-child(1){
+  top: 0;
+  left: 0;
+}
+
+.burguer span:nth-child(2){
+  top: calc(50% - 1px);
+  left: 0;
+}
+
+.burguer span:nth-child(3){
+  top: calc(100% - 2px);
+  left: 0;
+}
+
+.mobileMenu.active .burguer span:nth-child(1){
+  transform: rotate(45deg);
+  top: calc(50% - 1px);
+}
+.mobileMenu.active .burguer span:nth-child(2){
+  width: 0;
+}
+.mobileMenu.active .burguer span:nth-child(3){
+  transform: rotate(-45deg);
+  top: calc(50% - 1px);
+}
+
+.mobileMenu.active ul{
+  background-color: var(--white);
+  display: block;
+  height: calc(100vh - 65px);
+  left: 0;
+  list-style: none;
+  margin: auto;
+  padding: 0;
+  position: absolute;
+  top: 65px;
+  width: 100%;
+}
+
+.mobileMenu.active ul li{
+  padding: 10px;
+}
+.mobileMenu.active ul li:not(:last-child){
+  border-bottom: 1px solid #ccc;
+}
+
+@media (min-width: 768px){
+  .mobileMenu{
+    display: none;
+  }
+}

@@ -6,6 +6,19 @@
   top: 0;
   background-color: var(--white);
   height: 65px;
+  z-index: 100;
+}
+
+.header::after{
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 100%;
+  background-color: var(--white);
+  z-index: -1;
 }
 
 .desktopMenu {
@@ -92,6 +105,18 @@
   position: absolute;
   top: 65px;
   width: 100%;
+}
+
+.mobileMenu.active ul::after{
+  content: '';
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+  left: 50%;
+  top: 0;
+  z-index: -1;
+  background-color: var(--white);
+  transform: translateX(-50%);
 }
 
 .mobileMenu.active ul li{

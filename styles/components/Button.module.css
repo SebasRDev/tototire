@@ -10,3 +10,16 @@
   justify-content: center;
   margin-top: 15px;
 }
+
+.featured__button {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  background-color: var(--primary);
+  border: none;
+  color: var(--white);
+  font-size: 20px;
+  margin: 0;
+  padding: 10px 0;
+  text-transform: uppercase;
+  text-align: center;
+}

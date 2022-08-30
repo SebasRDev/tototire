@@ -4,7 +4,10 @@
   --secondary: #051026;
   --accent: #789696;
   --darker-opacity: #000000BC;
+  --lighter-opacity: #00000080;
   --backgrounds: #EEECEC;
+  --swiper-navigation-color: #fff;
+  --swiper-theme-color: #fff;
 }
 
 html,
@@ -42,4 +45,16 @@ a {
 
   -webkit-animation-name: fadeIn;
   animation-name: fadeIn;
+}
+
+.mySwiper-services .swiper-button-next,
+.mySwiper-services .swiper-button-prev{
+  top: 200px;
+}
+
+@media (min-width: 768px){
+  .mySwiper-services .swiper-button-next,
+  .mySwiper-services .swiper-button-prev{
+    top: calc(50% - 22px);
+  }
 }

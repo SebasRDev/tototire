@@ -4,3 +4,4 @@ export * from './navbar/Cart';
 export * from './shared/Button';
 export * from './shared/FeaturedSlider';
 export * from './shared/FeaturedContent';
+export * from './services/ServiceSlide';

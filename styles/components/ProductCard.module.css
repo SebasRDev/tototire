@@ -1,0 +1,55 @@
+.product__card{
+  border-radius: 8px;
+  background-color: var(--white);
+  padding: 8px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tire__ref{
+  font-family: var(--montserrat);
+  font-weight: var(--bold);
+  color: var(--primary);
+  text-transform: uppercase;
+  font-size: 24px;
+  margin: 20px 0 0;
+  padding: 20px 12px 0;
+  border-top: 1px solid var(--accent);
+  width: 100%;
+  text-align: center;
+}
+
+.tire__mark{
+  font-family: var(--montserrat);
+  color: var(--shuttle-gray);
+  margin: 0;
+  font-size: 20px;
+}
+
+.prices{
+  display: flex;
+  align-items: center;
+  margin: 20px;
+}
+
+.current__price{
+  color: var(--secondary);
+  font-family: var(--montserrat);
+  font-weight: var(--medium);
+  font-size: 24px;
+  margin: 0;
+}
+
+.current__price.offer__price__old{
+  color: var(--shuttle-gray);
+  padding-right: 15px;
+  font-size: 18px;
+  text-decoration: line-through;
+}
+
+.offer__price{
+  border-left: 1px solid var(--shuttle-gray);
+  padding-left: 15px;
+}

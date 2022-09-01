@@ -6,3 +6,4 @@ export * from './shared/FeaturedSlider';
 export * from './shared/FeaturedContent';
 export * from './services/ServiceSlide';
 export * from './aboutUs/AboutUsItem';
+export * from './shared/ProductCard';

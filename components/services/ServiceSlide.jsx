@@ -1,6 +1,5 @@
 import Image from "next/image";
 
-import glStyles from "../../styles/globals.module.css";
 import styles from "../../styles/pages/Servicios.module.css";
 
 export const ServiceSlide = () => {
@@ -16,7 +15,7 @@ export const ServiceSlide = () => {
           height={800}
         />
       </div>
-      <div className={`${glStyles.container} ${styles.content__wrapper}`}>
+      <div className={`container ${styles.content__wrapper}`}>
         <div className={styles.content}>
           <h2>
             Instalacion de llantas <br /> 2

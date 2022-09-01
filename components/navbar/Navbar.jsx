@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 import styles from "../../styles/components/Navbar.module.css";
-import glStyles from '../../styles/globals.module.css'
 import { Cart } from "../";
 import { useState } from "react";
 
@@ -10,7 +9,7 @@ export const Navbar = () => {
   const [openMenuMobile, setopenMenuMobile] = useState(false)
 
   return (
-    <div className={`${glStyles.container} ${styles.header}`}>
+    <div className={`container ${styles.header}`}>
       <Link href="/" passHref>
         <a>
           <Image

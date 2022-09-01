@@ -4,8 +4,8 @@
 }
 
 .special__name {
-  font-weight: 700;
-  font-family: "Montserrat", sans-serif;
+  font-weight: var(--bold);
+  font-family: var(--montserrat);
   text-align: center;
   line-height: 0.8;
   margin: auto;
@@ -52,8 +52,8 @@
 }
 
 .price {
-  font-family: "Nunito", sans-serif;
-  font-weight: 700;
+  font-family: var(--nunito);
+  font-weight: var(--bold);
   align-items: center;
   background-color: var(--secondary);
   color: var(--white);

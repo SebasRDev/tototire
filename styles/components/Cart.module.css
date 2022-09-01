@@ -155,13 +155,13 @@
 
 .cart__prices p {
   margin: 0;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 300;
+  font-family: var(--montserrat);
+  font-weight: var(--light);
 }
 
 .cart__prices h3 {
   margin: 0;
-  font-family: "Nunito", sans-serif;
-  font-weight: 700;
+  font-family: var(--nunito);
+  font-weight: var(--bold);
   font-size: 2rem;
 }

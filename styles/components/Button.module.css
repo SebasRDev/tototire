@@ -1,6 +1,6 @@
 .special__button {
-  font-family: "Nunito", sans-serif;
-  font-weight: 700;
+  font-family: var(--nunito);
+  font-weight: var(--bold);
   color: var(--white);
   background-color: var(--secondary);
   text-decoration: none;
@@ -12,8 +12,8 @@
 }
 
 .featured__button {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 500;
+  font-family: var(--montserrat);
+  font-weight: var(--medium);
   background-color: var(--primary);
   border: none;
   color: var(--white);

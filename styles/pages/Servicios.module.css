@@ -43,8 +43,8 @@
 }
 
 .content h2 {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 700;
+  font-family: var(--montserrat);
+  font-weight: var(--bold);
   font-size: 32px;
   line-height: 1.1;
   color: var(--primary);
@@ -54,8 +54,8 @@
 }
 
 .content p {
-  font-family: "Nunito", sans-serif;
-  font-weight: 400;
+  font-family: var(--nunito);
+  font-weight: var(--regular);
   font-size: 16px;
   line-height: 1.4;
   color: var(--secondry);

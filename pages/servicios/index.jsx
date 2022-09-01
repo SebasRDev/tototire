@@ -1,10 +1,10 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Navigation } from "swiper";
-import { ServiceSlide } from "../components";
+import { ServiceSlide } from "../../components";
 
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
-import styles from "../styles/pages/Servicios.module.css";
+import styles from "../../styles/pages/Servicios.module.css";
 
 const slidePosition = "bot-left";
 

@@ -3,11 +3,18 @@
   --primary: #EC1C20;
   --secondary: #051026;
   --accent: #789696;
+  --shuttle-gray: #63666A;
   --darker-opacity: #000000BC;
   --lighter-opacity: #00000080;
   --backgrounds: #EEECEC;
   --swiper-navigation-color: #fff;
   --swiper-theme-color: #fff;
+  --montserrat: "Montserrat", sans-serif;
+  --nunito: "Nunito", sans-serif;
+  --light: 300; 
+  --regular: 400; 
+  --medium: 500; 
+  --bold: 700; 
 }
 
 html,
@@ -35,6 +42,12 @@ a {
 @-webkit-keyframes fadeIn {
   0% {opacity: 0;}
   100% {opacity: 1;}
+}
+
+.container{
+  margin: auto;
+  max-width: 1140px;
+  width: 95%;
 }
 
 .fadeIn {

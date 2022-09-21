@@ -7,3 +7,4 @@ export * from './shared/FeaturedContent';
 export * from './services/ServiceSlide';
 export * from './aboutUs/AboutUsItem';
 export * from './shared/ProductCard';
+export * from './product/TableData';

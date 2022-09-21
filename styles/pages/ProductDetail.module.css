@@ -1,0 +1,26 @@
+.product__banner{
+  display: flex;
+}
+
+.tire__gallery,
+.tire__info{
+  width: 50%;
+  position: relative;
+}
+
+.tire__info{
+  width: 50%;
+  position: relative;
+  text-align: right;
+}
+
+.tire__info::after{
+  content: '';
+  position: absolute;
+  width: 50vw;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  background-color: var(--primary);
+}

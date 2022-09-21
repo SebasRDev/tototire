@@ -23,4 +23,17 @@
 
 .details{
   color: var(--primary);
+  transition: color 0.3s ease;
+  font-size: 16px;
+}
+
+.deatils:hover{
+  color: var(--secondary);
+}
+
+@media (min-width: 768px){
+  .details{
+    color: var(--primary);
+    font-size: 18px;
+  }
 }

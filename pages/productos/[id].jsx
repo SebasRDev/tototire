@@ -18,14 +18,14 @@ const ProductDetail = () => {
         {/* galeria detalle */}
         <div className={Styles.tire__gallery}></div>
         <div className={Styles.tire__info}>
-          <div>
+          <div className={Styles.tire__name}>
             <h3>PIRELLI</h3>
             <h2>CINTURATO P7 RFT</h2>
           </div>
-          <div>
-            <p>PRECIO</p>
-            <p>$963.374 </p>
-            <p>*Este producto no incluye el Rin</p>
+          <div className={Styles.tire__price}>
+            <p className={Styles.price__label}>PRECIO</p>
+            <p className={Styles.price}>$963.374 </p>
+            <p className={Styles.disclaimer}>*Este producto no incluye el Rin</p>
             {/* boton añadir al carrito */}
           </div>
         </div>

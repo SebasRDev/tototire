@@ -1,4 +1,4 @@
-import { TableData } from "../../components"
+import { DetailSlider, TableData } from "../../components"
 import Styles from '../../styles/pages/ProductDetail.module.css'
 
 const data = [
@@ -15,8 +15,9 @@ const ProductDetail = () => {
   return (
     <div className={`container`}>
       <section className={Styles.product__banner}>
-        {/* galeria detalle */}
-        <div className={Styles.tire__gallery}></div>
+        <div className={Styles.tire__gallery}>
+          <DetailSlider />
+        </div>
         <div className={Styles.tire__info}>
           <div className={Styles.tire__name}>
             <h3>PIRELLI</h3>

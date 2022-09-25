@@ -20,7 +20,7 @@ export const ProductCard = ({img,mark,reference,price, priceOffer}) => {
           <p className={`${styles.offer__price} ${styles.current__price}`}>${priceOffer}</p>
         }
       </div>
-      <Link passHref href="/nosotros">
+      <Link passHref href="/productos/123">
         <a className={styles.details}>
           Ver detalles
         </a>

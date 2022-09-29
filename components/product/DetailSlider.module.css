@@ -1,0 +1,28 @@
+.pagination{
+  position: absolute;
+  top: 50%;
+  left: -90px;
+  transform: translateY(-50%);
+  width: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pagination div{
+  width: 45px;
+  height: 10px;
+  background-color: var(--backgrounds);
+}
+.pagination div.active{
+  width: 60px;
+  background-color: var(--primary);
+}
+
+.thumb{
+  border-bottom: 4px solid transparent;
+}
+
+.active__thumb{
+  border-color: var(--dark-accent);
+}

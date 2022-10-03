@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useState } from "react";
-import ReactImageMagnify from "react-image-magnify";
+import { SideBySideMagnifier } from "react-image-magnifiers";
 
 import styles from "./DetailSlider.module.css";
 
@@ -17,30 +17,28 @@ export const DetailSlider = () => {
   return (
     <>
       <div className="relative">
-        <ReactImageMagnify
-          {...{
-            smallImage: {
-              alt: "Wristwatch by Ted Baker London",
-              isFluidWidth: true,
-              src: `/images/${images[activeImg]}`,
-            },
-            largeImage: {
-              src: `/images/${images[activeImg]}`,
-              width: 500,
-              height: 500,
-            },
-          }}
-        />
-        <Image
+        <div className="flex">
+          <SideBySideMagnifier
+            imageSrc={`https://adamrisberg.github.io/react-image-magnifiers/4700d4cb26b14563be996aa5f0c53ca2.jpg`}
+            imageAlt="test"
+            largeImageSrc={`https://adamrisberg.github.io/react-image-magnifiers/4700d4cb26b14563be996aa5f0c53ca2.jpg`}
+            zoomPosition="left"
+            className="input-position"
+            style={{ order: "0" }}
+            zoomContainerBorder="1px solid #ccc"
+            zoomContainerBoxShadow="0 4px 8px rgba(0,0,0,.5)"
+          />
+        </div>
+        {/* <Image
           alt="test"
           width={500}
           height={500}
           src={`/images/${images[activeImg]}`}
-        />
+        /> */}
         <div className={styles.pagination}>
           {images.map((img, idx) => (
             <div
-              className={activeImg === idx && styles["active"]}
+              className={activeImg === idx ? styles["active"] : null}
               key={idx}
             ></div>
           ))}

@@ -1,7 +1,6 @@
 import Styles from "./TableData.module.css";
 
 export const TableData = ({ data }) => {
-  console.log(data);
   return (
     <section>
       <h2 className={Styles.table__title}>Especificaciones técnicas</h2>

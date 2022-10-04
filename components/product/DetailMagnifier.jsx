@@ -42,37 +42,22 @@ export const DetailMagnifier = ({
           setShowMag(false);
         }}
       />
-      {console.log(imgWidth * zoomLvl)}
 
-      {/* {magnifier} */}
-      <div
-        className={styles.magnifier}
-        style={{
-          height: `${magHeight}px`,
-          width: `${magHeight}px`,
-          top: `${y - magHeight / 2}px`,
-          left: `${x - magWidth / 2}px`,
-          backgroundImage: `url(${src})`,
-          backgroundSize: `${imgWidth * zoomLvl}px ${imgHeight * zoomLvl}px`,
-          backgroundPositionX: `${-x * zoomLvl + magWidth / 2}px`,
-          backgroundPositionY: `${-y * zoomLvl + magHeight / 2}px`,
-        }}
-      ></div>
-      {/* {showMag && (
+      {showMag && (
         <div
           className={styles.magnifier}
           style={{
             height: `${magHeight}px`,
             width: `${magHeight}px`,
-            top: `${y}px`,
-            left: `${x}px`,
+            top: `${y - magHeight / 2}px`,
+            left: `${x - magWidth / 2}px`,
             backgroundImage: `url(${src})`,
             backgroundSize: `${imgWidth * zoomLvl}px ${imgHeight * zoomLvl}px`,
             backgroundPositionX: `${-x * zoomLvl + magWidth / 2}px`,
-            backgroundPositionY: `${-x * zoomLvl + magHeight / 2}px`,
+            backgroundPositionY: `${-y * zoomLvl + magHeight / 2}px`,
           }}
         ></div>
-      )} */}
+      )}
     </div>
   );
 };

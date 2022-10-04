@@ -9,3 +9,4 @@ export * from './aboutUs/AboutUsItem';
 export * from './shared/ProductCard';
 export * from './product/TableData';
 export * from './product/DetailSlider';
+export * from './product/DetailMagnifier';

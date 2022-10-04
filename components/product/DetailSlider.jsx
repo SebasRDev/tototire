@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useState } from "react";
-import { SideBySideMagnifier } from "react-image-magnifiers";
+import { DetailMagnifier } from "../";
 
 import styles from "./DetailSlider.module.css";
 
@@ -18,15 +18,14 @@ export const DetailSlider = () => {
     <>
       <div className="relative">
         <div className="flex">
-          <SideBySideMagnifier
-            imageSrc={`https://adamrisberg.github.io/react-image-magnifiers/4700d4cb26b14563be996aa5f0c53ca2.jpg`}
-            imageAlt="test"
-            largeImageSrc={`https://adamrisberg.github.io/react-image-magnifiers/4700d4cb26b14563be996aa5f0c53ca2.jpg`}
-            zoomPosition="left"
-            className="input-position"
-            style={{ order: "0" }}
-            zoomContainerBorder="1px solid #ccc"
-            zoomContainerBoxShadow="0 4px 8px rgba(0,0,0,.5)"
+          <DetailMagnifier 
+            alt={'test'}
+            src={`/images/${images[activeImg]}`}
+            width={500}
+            height={500}
+            magHeight={100}
+            magWidth={100}
+            zoomLvl={2}
           />
         </div>
         {/* <Image

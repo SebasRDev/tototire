@@ -1,0 +1,12 @@
+.magnifierContainer{
+  position: relative;
+}
+
+.magnifier{
+  position: absolute;
+  pointer-events: none;
+  opacity: 1;
+  border: 2px solid var(--accent);
+  background-color: var(--white);
+  background-repeat: no-repeat;
+}

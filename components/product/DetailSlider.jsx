@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useState } from "react";
+import { DetailMagnifier } from "../";
 
 import styles from "./DetailSlider.module.css";
 
@@ -16,16 +17,27 @@ export const DetailSlider = () => {
   return (
     <>
       <div className="relative">
-        <Image
+        <div className="flex">
+          <DetailMagnifier 
+            alt={'test'}
+            src={`/images/${images[activeImg]}`}
+            width={500}
+            height={500}
+            magHeight={100}
+            magWidth={100}
+            zoomLvl={2}
+          />
+        </div>
+        {/* <Image
           alt="test"
           width={500}
           height={500}
           src={`/images/${images[activeImg]}`}
-        />
+        /> */}
         <div className={styles.pagination}>
           {images.map((img, idx) => (
             <div
-              className={activeImg === idx && styles["active"]}
+              className={activeImg === idx ? styles["active"] : null}
               key={idx}
             ></div>
           ))}

@@ -1,0 +1,22 @@
+.footer{
+  margin-top: 80px;
+  padding: 48px 0 64px;
+  position: relative;
+  display: flex;
+}
+
+.footer::after{
+  content: '';
+  position: absolute;
+  background-color: var(--backgrounds);
+  width: var(--client-width);
+  height: 100%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+}
+
+.contact{
+  
+}

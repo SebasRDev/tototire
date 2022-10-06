@@ -15,7 +15,7 @@
   left: 50%;
   top: 0;
   transform: translateX(-50%);
-  width: 100vw;
+  width: var(--client-width);
   height: 100%;
   background-color: var(--white);
   z-index: -1;
@@ -110,7 +110,7 @@
 .mobileMenu.active ul::after{
   content: '';
   position: absolute;
-  width: 100vw;
+  width: var(--client-width);
   height: 100%;
   left: 50%;
   top: 0;

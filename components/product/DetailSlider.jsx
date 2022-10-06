@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { useState } from "react";
-import ReactImageMagnify from "react-image-magnify";
 
 import styles from "./DetailSlider.module.css";
 
@@ -17,20 +16,6 @@ export const DetailSlider = () => {
   return (
     <>
       <div className="relative">
-        <ReactImageMagnify
-          {...{
-            smallImage: {
-              alt: "Wristwatch by Ted Baker London",
-              isFluidWidth: true,
-              src: `/images/${images[activeImg]}`,
-            },
-            largeImage: {
-              src: `/images/${images[activeImg]}`,
-              width: 500,
-              height: 500,
-            },
-          }}
-        />
         <Image
           alt="test"
           width={500}
@@ -52,7 +37,7 @@ export const DetailSlider = () => {
             return (
               <div
                 className={`snap-start shrink-0 ${styles.thumb} ${
-                  activeImg === idx && styles["active__thumb"]
+                  activeImg === idx ? styles["active__thumb"] : null
                 }`}
                 key={idx}
               >

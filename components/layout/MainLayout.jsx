@@ -1,7 +1,13 @@
-import Head from 'next/head'
-import { Navbar } from '../index'
+import Head from "next/head";
+import { useEffect } from "react";
+import { Navbar, Footer } from "../index";
 
-export const MainLayout = ({children}) => {
+export const MainLayout = ({ children }) => {
+  useEffect(() => {
+    const body = document.querySelector("body");
+    document.documentElement.style.setProperty("--client-width", `${body.offsetWidth}px`);
+  }, []);
+
   return (
     <div>
       <Head>
@@ -11,7 +17,7 @@ export const MainLayout = ({children}) => {
       </Head>
       <Navbar />
       {children}
-      <p>Hola Mundo</p>
+      <Footer />
     </div>
-  )
-}
+  );
+};

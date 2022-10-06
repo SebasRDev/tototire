@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import styles from "../../styles/components/Navbar.module.css";
+import styles from "./Navbar.module.css";
 import { Cart } from "../";
 import { useState } from "react";
 

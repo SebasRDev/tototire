@@ -5,7 +5,7 @@
 .products__page::after{
   content: '';
   position: absolute;
-  width: 100vw;
+  width: var(--client-width);
   height: 100%;
   left: 50%;
   top: 0;

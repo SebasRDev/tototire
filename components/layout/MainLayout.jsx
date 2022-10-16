@@ -5,6 +5,7 @@ import { Navbar, Footer } from "../index";
 export const MainLayout = ({ children }) => {
   useEffect(() => {
     const body = document.querySelector("body");
+    console.log(body.offsetWidth)
     document.documentElement.style.setProperty("--client-width", `${body.offsetWidth}px`);
   }, []);
 

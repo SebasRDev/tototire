@@ -22,7 +22,7 @@
 .tire__info::after{
   content: '';
   position: absolute;
-  width: 50vw;
+  width: calc(var(--client-width) / 2);
   height: 100%;
   left: 0;
   top: 0;

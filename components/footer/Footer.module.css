@@ -1,12 +1,12 @@
-.footer{
+.footer {
   margin-top: 80px;
   padding: 48px 0 64px;
   position: relative;
   display: flex;
 }
 
-.footer::after{
-  content: '';
+.footer::after {
+  content: "";
   position: absolute;
   background-color: var(--backgrounds);
   width: var(--client-width);
@@ -17,6 +17,36 @@
   z-index: -1;
 }
 
-.contact{
-  
+.contact {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact__card {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.contact__data {
+  display: flex;
+  gap: 5px 10px;
+  width: 260px;
+  flex-wrap: wrap;
+}
+
+.card__data a,
+.card__data p {
+  min-width: 100%;
+}
+
+@media (min-width: 768px) {  
+  .footer {
+    justify-content: space-between;
+  }
+
+  .card__data a,
+  .card__data p {
+    min-width: 50%;
+  }
 }

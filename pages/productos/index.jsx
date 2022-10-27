@@ -1,34 +1,42 @@
-import { ProductCard } from "../../components"
+import { ProductCard } from "../../components";
 
-import styles from '../../styles/pages/Products.module.css'
+import styles from "../../styles/pages/Products.module.css";
 
-const dataProduct = {
-  img: "/icons/default-wheel.svg",
-  reference:'SL369 215/70R16',
-  mark: 'West lake',
-  price: '301.681',
-  priceOffer: '270.500'
-}
-
-const dataProduct2 = {
-  img: "/icons/default-wheel.svg",
-  reference:'SL369 215/70R16',
-  mark: 'West lake',
-  price: '301.681'
-}
-
-const productos = () => {
+const productos = ({ data }) => {
   return (
     <div className={`container ${styles.products__page}`}>
       <div className={styles.products__wrapper}>
-        <ProductCard {...dataProduct}/>
-        <ProductCard {...dataProduct2}/>
-        <ProductCard {...dataProduct}/>
-        <ProductCard {...dataProduct}/>
-        <ProductCard {...dataProduct}/>
+        {data.map(({ attributes }) => {
+          const { COD_REF, MARCA, PRECIO, DISENO, ANCHO, PERFIL, RIN, IMAGEN } =
+            attributes;
+          const mainImg = IMAGEN.data
+            ? IMAGEN.data[0].attributes.url
+            : "/icons/default-wheel.svg";
+
+          const dataProduct = {
+            img: mainImg,
+            reference: `${DISENO} ${ANCHO}/${PERFIL}R${RIN}`,
+            mark: MARCA,
+            price: PRECIO,
+            id: COD_REF
+          };
+
+          return <ProductCard key={COD_REF} {...dataProduct} />;
+        })}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default productos
+export const getServerSideProps = async (ctx) => {
+  const resp = await fetch(`${process.env.API_URL}/productos?populate=IMAGEN`);
+  const { data } = await resp.json();
+
+  return {
+    props: {
+      data,
+    },
+  };
+};
+
+export default productos;

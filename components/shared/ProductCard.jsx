@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 import styles from '../../styles/components/ProductCard.module.css'
 
-export const ProductCard = ({img,mark,reference,price, priceOffer}) => {
+export const ProductCard = ({id,img,mark,reference,price, priceOffer}) => {
   return (
     <div className={styles.product__card}>
       <Image
@@ -20,7 +20,7 @@ export const ProductCard = ({img,mark,reference,price, priceOffer}) => {
           <p className={`${styles.offer__price} ${styles.current__price}`}>${priceOffer}</p>
         }
       </div>
-      <Link passHref href="/productos/123">
+      <Link passHref href={`/productos/${id}`}>
         <a className={styles.details}>
           Ver detalles
         </a>

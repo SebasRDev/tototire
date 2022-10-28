@@ -36,4 +36,15 @@ const ProductDetail = () => {
   )
 }
 
+export const getServerSideProps = async (ctx) => {
+  const resp = await fetch(`${process.env.API_URL}/productos/177?populate=IMAGEN`);
+  const { data } = await resp.json();
+
+  return {
+    props: {
+      data,
+    },
+  };
+};
+
 export default ProductDetail

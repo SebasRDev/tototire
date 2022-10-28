@@ -6,9 +6,9 @@ const productos = ({ data }) => {
   return (
     <div className={`container ${styles.products__page}`}>
       <div className={styles.products__wrapper}>
-        {data.map(({ attributes }) => {
+        {data.map(({ attributes:product }) => {
           const { COD_REF, MARCA, PRECIO, DISENO, ANCHO, PERFIL, RIN, IMAGEN } =
-            attributes;
+          product;
           const mainImg = IMAGEN.data
             ? IMAGEN.data[0].attributes.url
             : "/icons/default-wheel.svg";

@@ -7,7 +7,7 @@ const productos = ({ data }) => {
     <div className={`container ${styles.products__page}`}>
       <div className={styles.products__wrapper}>
         {data.map(({ attributes:product }) => {
-          const { COD_REF, MARCA, PRECIO, DISENO, ANCHO, PERFIL, RIN, IMAGEN } =
+          const { COD_REF, MARCA, PRECIO, DISENO, ANCHO, PERFIL, RIN, IMAGEN, slug } =
           product;
           const mainImg = IMAGEN.data
             ? IMAGEN.data[0].attributes.url
@@ -18,7 +18,8 @@ const productos = ({ data }) => {
             reference: `${DISENO} ${ANCHO}/${PERFIL}R${RIN}`,
             mark: MARCA,
             price: PRECIO,
-            id: COD_REF
+            id: COD_REF,
+            slug
           };
 
           return <ProductCard key={COD_REF} {...dataProduct} />;

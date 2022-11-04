@@ -4,15 +4,15 @@ import { DetailMagnifier } from "../";
 
 import styles from "./DetailSlider.module.css";
 
-const images = [
-  "bridgestone_ecopia.png",
-  "bridgestone_ecopia_2.png",
-  "bridgestone_ecopia_3.png",
-  "bridgestone_ecopia_4.png",
-  "bridgestone_ecopia.png",
-];
+// const images = [
+//   "bridgestone_ecopia.png",
+//   "bridgestone_ecopia_2.png",
+//   "bridgestone_ecopia_3.png",
+//   "bridgestone_ecopia_4.png",
+//   "bridgestone_ecopia.png",
+// ];
 
-export const DetailSlider = () => {
+export const DetailSlider = ({images}) => {
   const [activeImg, setActiveImg] = useState(0);
   return (
     <>
@@ -20,12 +20,12 @@ export const DetailSlider = () => {
         <div className="flex">
           <DetailMagnifier 
             alt={'test'}
-            src={`/images/${images[activeImg]}`}
+            src={images[activeImg]}
             width={500}
             height={500}
-            magHeight={100}
-            magWidth={100}
-            zoomLvl={2}
+            magHeight={150}
+            magWidth={150}
+            zoomLvl={1.5}
           />
         </div>
         {/* <Image
@@ -37,6 +37,7 @@ export const DetailSlider = () => {
         <div className={styles.pagination}>
           {images.map((img, idx) => (
             <div
+              onClick={() => setActiveImg(idx)}
               className={activeImg === idx ? styles["active"] : null}
               key={idx}
             ></div>
@@ -59,7 +60,7 @@ export const DetailSlider = () => {
                   alt="test"
                   width={150}
                   height={150}
-                  src={`/images/${img}`}
+                  src={img}
                 />
               </div>
             );

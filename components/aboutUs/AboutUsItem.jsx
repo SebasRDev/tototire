@@ -3,7 +3,6 @@ import Image from "next/image";
 import styles from "../../styles/pages/Nosotros.module.css";
 
 export const AboutUsItem = ({ img, title, description, size }) => {
-  console.log(img);
   return (
     <div className={`${styles.about__us__item} ${styles[size]}`}>
       <div className={styles.image__wrapper}>

@@ -1,8 +1,13 @@
+.features__table{
+  margin-top: 50px;
+}
+
 .table__title{
   color: var(--accent);
   font-size: 24px;
   font-family: var(--montserrat);
   font-weight: var(--medium);
+  margin-bottom: 25px;
 }
 
 .table{

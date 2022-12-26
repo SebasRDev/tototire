@@ -3,63 +3,42 @@ import { AboutUsItem } from "../../components/index";
 
 import styles from "../../styles/pages/Nosotros.module.css";
 
-const data = [
-  {
-    img: "/service_1.png",
-    title: "TU ALIADO",
-    description:
-      "TOTO TIRE es una empresa abocada a la comercialización, distribución y venta de llantas, rines nacionales e importados, con más de 20 años de trayectoria en el mercado, dotando a la industria automotriz, en vehículos pesados, camionetas y automóviles en Colombia. Comprometida con las políticas de calidad y seguridad vigentes, el cual garantiza el compromiso de esta para sus clientes.",
-    size: "large",
-  },
-  {
-    img: "/service_1.png",
-    title: "TU ALIADO 2",
-    description:
-      "TOTO TIRE es una empresa abocada a la comercialización, distribución y venta de llantas, rines nacionales e importados, con más de 20 años de trayectoria en el mercado, dotando a la industria automotriz, en vehículos pesados, camionetas y automóviles en Colombia. Comprometida con las políticas de calidad y seguridad vigentes, el cual garantiza el compromiso de esta para sus clientes.",
-    size: "large",
-  },
-  {
-    img: "/icons/cart.svg",
-    title: "CALIDAD",
-    description:
-      "Como consecuencia de nuestros principios, TOTO TIRE está comprometida a asegurar el cumplimiento de lo acordado brindando un servicio y soluciones de calidad y comprometer a toda empresa, proveedores y socios comerciales con elevados estándares de calidad en los servicios y productos.",
-    size: "small",
-  },
-  {
-    img: "/icons/cart.svg",
-    title: "CALIDAD",
-    description:
-      "Como consecuencia de nuestros principios, TOTO TIRE está comprometida a asegurar el cumplimiento de lo acordado brindando un servicio y soluciones de calidad y comprometer a toda empresa, proveedores y socios comerciales con elevados estándares de calidad en los servicios y productos.",
-    size: "small",
-  },
-  {
-    img: "/icons/cart.svg",
-    title: "CALIDAD",
-    description:
-      "Como consecuencia de nuestros principios, TOTO TIRE está comprometida a asegurar el cumplimiento de lo acordado brindando un servicio y soluciones de calidad y comprometer a toda empresa, proveedores y socios comerciales con elevados estándares de calidad en los servicios y productos.",
-    size: "small",
-  },
-];
-
-const nosotros = () => {
+const nosotros = ({ data }) => {
+  console.log(data);
+  const { TituloPagina, Nosotros } = data.attributes;
   return (
     <div className="container">
       <div className={styles.wrapper}>
-        <h2 className={styles.title}>PRESENTAMOS TOTOTIRE</h2>
+        <h2 className={styles.title}>{TituloPagina}</h2>
         <div className={styles.flex__wrapper}>
-          {data.map((el, idx) => (
-            <AboutUsItem
-              key={idx}
-              img={el.img}
-              title={el.title}
-              description={el.description}
-              size={el.size}
-            />
-          ))}
+          {Nosotros.map((el) => {
+            const img = el.Imagen.data.attributes.url;
+            const size = el.Orientacion === "Horizontal" ? "large" : "small";
+            return (
+              <AboutUsItem
+                key={el.id}
+                img={img}
+                title={el.Titulo}
+                description={el.Descripcion}
+                size={size}
+              />
+            );
+          })}
         </div>
       </div>
     </div>
   );
+};
+
+export const getServerSideProps = async () => {
+  const resp = await fetch(`${process.env.API_URL}/nosotro?populate=deep,3`);
+  const { data } = await resp.json(); // your fetch function here
+
+  return {
+    props: {
+      data,
+    },
+  };
 };
 
 export default nosotros;

@@ -32,7 +32,7 @@ const nosotros = ({ data }) => {
 
 export const getServerSideProps = async () => {
   const resp = await fetch(`${process.env.API_URL}/nosotro?populate=deep,3`);
-  const { data } = await resp.json(); // your fetch function here
+  const { data } = await resp.json(); 
 
   return {
     props: {

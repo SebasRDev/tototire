@@ -13,14 +13,25 @@ const ProductDetail = ({ data }) => {
     ? DataImages.map((img) => img.attributes.url)
     : ["/icons/default-wheel.svg"];
 
-  console.log(data);
-
   const addToCart = () => {
+    const { products, quantity } = cartContext;
+    const exist = products.find((product) => product.slug === attributes.slug);
+    const moreTires = products.map(
+      (product) =>
+        product.slug === attributes.slug && {
+          ...product,
+          selected: product.selected + 1,
+        }
+    );
+
     setCartContext({
-      ...cartContext,
-      quantity: cartContext.quantity + 1,
-    })
-  }
+      products:
+        exist !== undefined
+          ? [...moreTires]
+          : [...products, { ...attributes, selected: 1 }],
+      quantity: quantity + 1,
+    });
+  };
 
   return (
     <div className={`container`}>

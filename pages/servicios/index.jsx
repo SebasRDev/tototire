@@ -4,17 +4,12 @@ import { ServiceSlide } from "../../components";
 
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
-import styles from "../../styles/pages/Servicios.module.css";
+import styles from "./Servicios.module.css";
+import { positionSlide } from "./constants";
 
-const slidePosition = "bot-left";
+const servicios = ({ data }) => {
+  const { Servicios } = data.attributes;
 
-//positions
-//top-right
-//top-left
-//bot-right
-//bot-left
-
-const servicios = () => {
   return (
     <Swiper
       slidesPerView={1}
@@ -26,18 +21,34 @@ const servicios = () => {
       className={`mySwiper-services ${styles.service__slider}`}
       breakpoints={{
         768: {
-          direction: "vertical"
+          direction: "vertical",
         },
       }}
     >
-      <SwiperSlide className={`${styles["bot-left"]}`}>
-        <ServiceSlide />
-      </SwiperSlide>
-      <SwiperSlide className={`${styles["top-right"]}`}>
-        <ServiceSlide />
-      </SwiperSlide>
+      {Servicios.map(({ id, Titulo, Descripcion, Posicion, Imagen }) => {
+        const { url } = Imagen.data.attributes;
+        return (
+          <SwiperSlide
+            key={id}
+            className={`${styles[positionSlide[Posicion]]}`}
+          >
+            <ServiceSlide title={Titulo} description={Descripcion} img={url} />
+          </SwiperSlide>
+        );
+      })}
     </Swiper>
   );
+};
+
+export const getServerSideProps = async (ctx) => {
+  const resp = await fetch(`${process.env.API_URL}/servicio?populate=deep,3`);
+  const { data } = await resp.json();
+
+  return {
+    props: {
+      data,
+    },
+  };
 };
 
 export default servicios;

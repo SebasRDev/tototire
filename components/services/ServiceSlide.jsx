@@ -1,30 +1,28 @@
 import Image from "next/image";
+import ReactMarkdown from "react-markdown";
 
-import styles from "../../styles/pages/Servicios.module.css";
+import styles from "../../pages/servicios/Servicios.module.css";
 
-export const ServiceSlide = () => {
+export const ServiceSlide = ({ title, description, img }) => {
   return (
     <>
       <div className={styles.bg__img}>
         <Image
+          priority
           className={styles.image__slider__desk}
           layout="responsive"
-          src="/service_1.png"
-          alt="service"
+          src={img}
+          alt={title}
           width={800}
           height={800}
         />
       </div>
       <div className={`container ${styles.content__wrapper}`}>
         <div className={styles.content}>
-          <h2>
-            Instalacion de llantas <br /> 2
-          </h2>
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Harum sint
-            porro numquam debitis sapiente id exercitationem et error mollitia,
-            quis adipisci vel sed tempora hic eum fugiat delectus, illum enim!
-          </p>
+          <h2>{title}</h2>
+          <ReactMarkdown className={styles.content__text}>
+            {description}
+          </ReactMarkdown>
         </div>
       </div>
     </>

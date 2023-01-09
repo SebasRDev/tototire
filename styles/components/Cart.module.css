@@ -117,6 +117,8 @@
   font-size: 1.6rem;
   margin: 0;
   width: 100%;
+  font-family: var(--montserrat);
+  font-weight: var(--bold);
 }
 
 .cart__data {

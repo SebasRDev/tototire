@@ -26,6 +26,7 @@ import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
   const [cartContext, setcCartContext] = useState({
+    open: false,
     quantity: 0,
     products: [],
   })

@@ -7,13 +7,16 @@ import { shopingCartContext } from "../../state/context";
 import { formatPrice, numberToCurrency } from "../../helpers/helpers";
 
 export const Cart = () => {
-  const [openedCart, setOpenedCart] = useState(false);
   const [cartContext, setCartContext] = useContext(shopingCartContext);
+  const { open: openedCart } = cartContext;
 
   const { quantity: totalProducts, products } = cartContext;
 
-  const handleOpenCart = () => {
-    setOpenedCart(!openedCart);
+  const handleOpenCloseCart = (isOpen) => {
+    setCartContext({
+      ...cartContext,
+      open: isOpen,
+    });
   };
 
   const handleGetTotal = () => {
@@ -25,7 +28,10 @@ export const Cart = () => {
 
   return (
     <>
-      <div className={styles.shopping__cart} onClick={handleOpenCart}>
+      <div
+        className={styles.shopping__cart}
+        onClick={() => handleOpenCloseCart(true)}
+      >
         <Image
           src="/icons/cart.svg"
           alt="carrito de compras"
@@ -41,7 +47,10 @@ export const Cart = () => {
       >
         <div className={styles.cart__popUp__bg}></div>
         <div className={styles.cart__popUp__content}>
-          <span className={styles.cart__close} onClick={handleOpenCart}></span>
+          <span
+            className={styles.cart__close}
+            onClick={() => handleOpenCloseCart(false)}
+          ></span>
           <h2>Tus Compras</h2>
           <div className={styles.cart__data}>
             {products.map((product) => (

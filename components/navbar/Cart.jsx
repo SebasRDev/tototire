@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useContext, useState } from "react";
+import { useContext, useEffect } from "react";
 
 import styles from "../../styles/components/Cart.module.css";
 import { Button, CartItem } from "../";

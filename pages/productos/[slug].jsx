@@ -25,6 +25,7 @@ const ProductDetail = ({ data }) => {
     );
 
     setCartContext({
+      open: true,
       products:
         exist !== undefined
           ? [...moreTires]
@@ -50,7 +51,6 @@ const ProductDetail = ({ data }) => {
             <p className={Styles.disclaimer}>
               *Este producto no incluye el Rin
             </p>
-            {/* boton añadir al carrito */}
             <button onClick={addToCart}>Agregar al carrito</button>
           </div>
         </div>

@@ -5,8 +5,7 @@ import { shopingCartContext } from "../../state/context";
 import styles from "../../styles/components/CartItem.module.css";
 
 export const CartItem = (props) => {
-  console.log(props);
-  const { DISENO, IMAGEN, MARCA, ANCHO, RIN, PERFIL, CANT, PRECIO, selected } =
+  const { slug, DISENO, IMAGEN, MARCA, ANCHO, RIN, PERFIL, CANT, PRECIO, selected } =
     props;
   const imgUrl = IMAGEN.data
     ? IMAGEN.data[0].attributes.url
@@ -30,7 +29,7 @@ export const CartItem = (props) => {
           <h3 className={styles.price}>COP {PRECIO}</h3>
         </div>
         <div className={styles.actions}>
-          <Counter cant={selected} maxValue={CANT} />
+          <Counter cant={selected} maxValue={CANT} slug={slug}/>
           <button className={styles.delete}>Eliminar</button>
         </div>
       </div>

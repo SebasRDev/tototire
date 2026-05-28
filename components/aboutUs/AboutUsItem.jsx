@@ -7,7 +7,7 @@ export const AboutUsItem = ({ img, title, description, size }) => {
     <div className={`${styles.about__us__item} ${styles[size]}`}>
       <div className={styles.image__wrapper}>
         <Image
-          layout="fixed"
+          layout="intrinsic"
           src={img}
           alt={title}
           width={size == "large" ? 450 : 80}

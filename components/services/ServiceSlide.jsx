@@ -1,7 +1,7 @@
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 
-import styles from "../../pages/servicios/Servicios.module.css";
+import styles from "../../styles/pages/Servicios.module.css";
 
 export const ServiceSlide = ({ title, description, img }) => {
   return (

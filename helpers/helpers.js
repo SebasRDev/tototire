@@ -6,3 +6,8 @@ export const numberToCurrency = (number) => {
   const numberFormat = new Intl.NumberFormat("es-ES");
   return numberFormat.format(number);
 }
+
+export const setOpenPayCredentials = (merchantId, publicKey) => {
+  OpenPay.setId(merchantId);
+  OpenPay.setApiKey(publicKey);
+}

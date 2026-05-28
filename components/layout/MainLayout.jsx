@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useEffect } from "react";
-import { Navbar, Footer } from "../index";
+import { Navbar, Footer, SocialMedia } from "../index";
 
 export const MainLayout = ({ children }) => {
   useEffect(() => {
@@ -19,7 +19,8 @@ export const MainLayout = ({ children }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
-      {children}
+        {children}
+        <SocialMedia />
       <Footer />
     </div>
   );

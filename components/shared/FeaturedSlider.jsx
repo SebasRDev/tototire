@@ -8,6 +8,7 @@ import styles from "../../styles/components/FeaturedSlider.module.css";
 
 export const FeaturedSlider = ({ products }) => {
   const [slides, setSlides] = useState([]);
+
   useEffect(() => {
     setSlides(products);
   }, [products]);
@@ -19,16 +20,12 @@ export const FeaturedSlider = ({ products }) => {
       centeredSlides={true}
       loop={true}
       breakpoints={{
-        768: {
-          slidesPerView: 2,
-        },
-        1024: {
-          slidesPerView: 3,
-        },
+        768: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 },
       }}
       className={`mySwiper ${styles.featured__slider}`}
     >
-      {slides.map(({ attributes: slide }) => (
+      {slides.map((slide) => (
         <SwiperSlide key={slide.slug}>
           <FeaturedContent {...slide} rotation={false} />
         </SwiperSlide>

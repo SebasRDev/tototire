@@ -1,28 +1,8 @@
-import { useState } from "react";
+import Script from "next/script";
+import { useEffect, useState } from "react";
 import { MainLayout } from "../components";
 import { shopingCartContext } from "../state/context";
 import "../styles/globals.css";
-
-// cart = {
-//   quantity: 0,
-//   products: [
-  // {
-  //   id: 239,
-  //   attributes: {
-  //     MARCA: 'BRIDGESTONE',
-  //     DISENO: 'ECOPIA EP500',
-  //     RIN: 20,
-  //     ANCHO: 175,
-  //     PERFIL: 55,
-  //     CANT: 8,
-  //     COD_REF: 'BR1755520',
-  //     PRECIO: '709.385',
-  //     slug: 'br-1755520',
-  //     IMAGEN: { data: null }
-  //   }
-  // }
-//],
-// }
 
 function MyApp({ Component, pageProps }) {
   const [cartContext, setcCartContext] = useState({
@@ -31,10 +11,17 @@ function MyApp({ Component, pageProps }) {
     products: [],
   })
 
+  // useEffect(() => {
+  //   OpenPay.setId('test');
+  //   OpenPay.setApiKey('9as87faeta98s');
+  // }, [])
+
+
   return (
     <shopingCartContext.Provider
       value={[cartContext, setcCartContext]}
     >
+      <Script src="https://resources.openpay.co/openpay.v1.min.js" />
       <MainLayout>
         <Component {...pageProps} />
       </MainLayout>

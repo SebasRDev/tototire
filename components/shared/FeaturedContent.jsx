@@ -13,9 +13,8 @@ export const FeaturedContent = ({
   PRECIO,
   rotation,
 }) => {
-  const img = IMAGEN.data
-    ? IMAGEN.data[0].attributes.url
-    : "/icons/default-wheel.svg";
+  const img = IMAGEN?.[0]?.url ?? "/icons/default-wheel.svg";
+
   return (
     <>
       <div className={styles.special__name}>
@@ -27,23 +26,17 @@ export const FeaturedContent = ({
       >
         <Image
           priority
-          layout="responsive"
           src={img}
           alt={DISENO}
           width={555}
           height={555}
-          sizes="(min-width: 390px) 200px,
-                (min-width: 500px) 450px,
-                555px"
+          sizes="(min-width: 390px) 200px, (min-width: 500px) 450px, 555px"
+          style={{ width: "100%", height: "auto" }}
         />
       </div>
       <div className={styles.price__actions}>
         <h3 className={styles.price}>${PRECIO}</h3>
-        <Button
-          href={`/`}
-          label="añadir al carrito"
-          classes="featured__button"
-        />
+        <Button href="/" label="añadir al carrito" classes="featured__button" />
       </div>
     </>
   );

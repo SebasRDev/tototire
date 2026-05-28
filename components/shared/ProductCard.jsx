@@ -30,8 +30,8 @@ export const ProductCard = ({
           </p>
         )}
       </div>
-      <Link passHref href={`/productos/${slug}`}>
-        <a className={styles.details}>Ver detalles</a>
+      <Link className={styles.details} href={`/productos/${slug}`}>
+        Ver detalles
       </Link>
     </div>
   );

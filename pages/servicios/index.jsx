@@ -1,22 +1,20 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectFade, Navigation } from "swiper";
+import { EffectFade, Navigation } from "swiper/modules";
 import { ServiceSlide } from "../../components";
 
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
-import styles from "./Servicios.module.css";
-import { positionSlide } from "./constants";
+import styles from "../../styles/pages/Servicios.module.css";
+import { positionSlide } from "./../../components/constants";
 
-const servicios = ({ data }) => {
-  const { Servicios } = data.attributes;
+const Servicios = ({ data }) => {
+  const { Servicios } = data;
 
   return (
     <Swiper
       slidesPerView={1}
       navigation={true}
-      fadeEffect={{
-        crossFade: true,
-      }}
+      fadeEffect={{ crossFade: true }}
       modules={[EffectFade, Navigation]}
       className={`mySwiper-services ${styles.service__slider}`}
       breakpoints={{
@@ -26,7 +24,7 @@ const servicios = ({ data }) => {
       }}
     >
       {Servicios.map(({ id, Titulo, Descripcion, Posicion, Imagen }) => {
-        const { url } = Imagen.data.attributes;
+        const url = Imagen?.url ?? "/icons/default-wheel.svg";
         return (
           <SwiperSlide
             key={id}
@@ -40,15 +38,15 @@ const servicios = ({ data }) => {
   );
 };
 
-export const getServerSideProps = async (ctx) => {
-  const resp = await fetch(`${process.env.API_URL}/servicio?populate=deep,3`);
+export const getServerSideProps = async () => {
+  const resp = await fetch(
+    `${process.env.API_URL}/servicio?populate[Servicios][populate]=Imagen`
+  );
   const { data } = await resp.json();
 
   return {
-    props: {
-      data,
-    },
+    props: { data },
   };
 };
 
-export default servicios;
+export default Servicios;

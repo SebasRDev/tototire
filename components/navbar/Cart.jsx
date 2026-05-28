@@ -61,16 +61,10 @@ export const Cart = () => {
             <p id="countsLabel">Subtotal ({totalProducts} Productos)</p>
             <h3 id="subtotalLabel">${handleGetTotal()}</h3>
             <Button
-              href="/finalizar-compra"
+              href="/checkout"
               label="Comprar"
               classes="special__button"
             />
-            {/* <a
-              href="https://tototire.com/preprod/finalizar-compra/"
-              className="special__button"
-            >
-              Comprar
-            </a> */}
           </div>
         </div>
       </div>

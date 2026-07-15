@@ -1,13 +1,18 @@
-import { useState } from "react";
-import { ProductCard, ProductFilters, FilterChips } from "../../components";
+import { useState, useMemo } from "react";
+import {
+  ProductCard,
+  ProductFilters,
+  FilterChips,
+  ProductViewControls,
+  Pagination,
+} from "../../components";
 import styles from "../../styles/pages/Products.module.css";
 
 const EMPTY_FILTERS = { marca: [], rin: [], ancho: [], perfil: [] };
 
 async function fetchProducts(filters) {
   const hasFilters = Object.values(filters).some((arr) => arr.length > 0);
-
-  if (!hasFilters) return null; // signal: use initialData
+  if (!hasFilters) return null;
 
   const params = new URLSearchParams();
   filters.marca.forEach((v)  => params.append("marca",  v));
@@ -24,9 +29,20 @@ const Productos = ({ initialData, filterOptions }) => {
   const [products,      setProducts]      = useState(initialData);
   const [activeFilters, setActiveFilters] = useState(EMPTY_FILTERS);
   const [loading,       setLoading]       = useState(false);
+  const [view,          setView]          = useState("grid"); // "grid" | "list"
+  const [pageSize,      setPageSize]      = useState(25);
+  const [currentPage,   setCurrentPage]   = useState(1);
+
+  const totalPages = Math.ceil(products.length / pageSize);
+
+  const paginated = useMemo(
+    () => products.slice((currentPage - 1) * pageSize, currentPage * pageSize),
+    [products, currentPage, pageSize]
+  );
 
   const applyFilters = async (nextFilters) => {
     setLoading(true);
+    setCurrentPage(1);
     try {
       const result = await fetchProducts(nextFilters);
       setProducts(result ?? initialData);
@@ -51,6 +67,12 @@ const Productos = ({ initialData, filterOptions }) => {
   const handleClearAll = () => {
     setActiveFilters(EMPTY_FILTERS);
     setProducts(initialData);
+    setCurrentPage(1);
+  };
+
+  const handlePageSizeChange = (n) => {
+    setPageSize(n);
+    setCurrentPage(1);
   };
 
   const totalActive = Object.values(activeFilters).reduce(
@@ -70,13 +92,24 @@ const Productos = ({ initialData, filterOptions }) => {
         />
 
         <main className={styles.products__main}>
+          <ProductViewControls
+            total={products.length}
+            pageSize={pageSize}
+            view={view}
+            onPageSizeChange={handlePageSizeChange}
+            onViewChange={setView}
+          />
+
           {loading && <p className={styles.loading}>Filtrando...</p>}
+
           <div
-            className={`${styles.products__wrapper} ${
-              loading ? styles["products__wrapper--loading"] : ""
-            }`}
+            className={`${
+              view === "list"
+                ? styles["products__wrapper--list"]
+                : styles.products__wrapper
+            } ${loading ? styles["products__wrapper--loading"] : ""}`}
           >
-            {products.map((product) => {
+            {paginated.map((product) => {
               const { COD_REF, MARCA, PRECIO, DISENO, ANCHO, PERFIL, RIN, IMAGEN, slug } =
                 product;
               const mainImg = IMAGEN?.[0]?.url ?? "/icons/default-wheel.svg";
@@ -88,15 +121,24 @@ const Productos = ({ initialData, filterOptions }) => {
                   mark={MARCA}
                   price={PRECIO}
                   slug={slug}
+                  view={view}
+                  product={product}
                 />
               );
             })}
+
             {!loading && products.length === 0 && totalActive > 0 && (
               <p className={styles.no__results}>
                 No se encontraron productos con los filtros seleccionados.
               </p>
             )}
           </div>
+
+          <Pagination
+            current={currentPage}
+            total={totalPages}
+            onChange={setCurrentPage}
+          />
         </main>
       </div>
     </div>
@@ -109,8 +151,8 @@ export const getServerSideProps = async () => {
     fetch(`${process.env.API_URL}/productos/filtros`),
   ]);
 
-  const { data: initialData }    = await productsRes.json();
-  const { data: filterOptions }  = await filtersRes.json();
+  const { data: initialData }   = await productsRes.json();
+  const { data: filterOptions } = await filtersRes.json();
 
   return {
     props: {

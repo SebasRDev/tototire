@@ -1,4 +1,5 @@
-.product__card{
+/* ── Grid card (vista mosaico) ───────────────────────── */
+.product__card {
   border-radius: 8px;
   background-color: var(--white);
   padding: 8px 16px;
@@ -8,7 +9,7 @@
   align-items: center;
 }
 
-.tire__ref{
+.tire__ref {
   font-family: var(--montserrat);
   font-weight: var(--bold);
   color: var(--primary);
@@ -21,20 +22,20 @@
   text-align: center;
 }
 
-.tire__mark{
+.tire__mark {
   font-family: var(--montserrat);
   color: var(--shuttle-gray);
   margin: 0;
   font-size: 20px;
 }
 
-.prices{
+.prices {
   display: flex;
   align-items: center;
   margin: 20px;
 }
 
-.current__price{
+.current__price {
   color: var(--secondary);
   font-family: var(--montserrat);
   font-weight: var(--medium);
@@ -42,31 +43,146 @@
   margin: 0;
 }
 
-.current__price.offer__price__old{
+.current__price.offer__price__old {
   color: var(--shuttle-gray);
   padding-right: 15px;
   font-size: 18px;
   text-decoration: line-through;
 }
 
-.offer__price{
+.offer__price {
   border-left: 1px solid var(--shuttle-gray);
   padding-left: 15px;
 }
 
-.details{
+.details {
   color: var(--secondary);
   transition: color 0.3s ease;
   font-size: 16px;
 }
 
-.details:hover{
+.details:hover {
   color: var(--primary);
 }
 
-@media (min-width: 768px){
-  .details{
-    color: var(--secondary);
+@media (min-width: 768px) {
+  .details {
     font-size: 18px;
   }
+}
+
+.card__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.add__to__cart {
+  font-family: var(--montserrat);
+  font-size: 14px;
+  color: var(--white);
+  background-color: var(--secondary);
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: 100%;
+}
+
+.add__to__cart:hover {
+  background-color: var(--primary);
+}
+
+/* ── List card (vista lista) ─────────────────────────── */
+.product__list__item {
+  background-color: var(--white);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 16px;
+  width: 100%;
+}
+
+.list__image {
+  flex-shrink: 0;
+}
+
+.list__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.list__ref {
+  font-family: var(--montserrat);
+  font-weight: var(--bold);
+  color: var(--primary);
+  text-transform: uppercase;
+  font-size: 18px;
+  margin: 0 0 4px;
+}
+
+.list__mark {
+  font-family: var(--montserrat);
+  color: var(--shuttle-gray);
+  font-size: 14px;
+  margin: 0;
+}
+
+.list__right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.list__price {
+  font-family: var(--montserrat);
+  font-weight: var(--medium);
+  color: var(--secondary);
+  font-size: 22px;
+  margin: 0;
+}
+
+.list__details {
+  font-family: var(--montserrat);
+  font-size: 13px;
+  color: var(--white);
+  background-color: var(--secondary);
+  border-radius: 4px;
+  padding: 6px 14px;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+}
+
+.list__details:hover {
+  background-color: var(--primary);
+}
+
+.list__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.list__add {
+  font-family: var(--montserrat);
+  font-size: 13px;
+  color: var(--secondary);
+  background-color: transparent;
+  border: 1px solid var(--secondary);
+  border-radius: 4px;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+
+.list__add:hover {
+  background-color: var(--secondary);
+  color: var(--white);
 }

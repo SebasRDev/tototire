@@ -1,12 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
-import { shopingCartContext } from "../../state/context";
+import React, { useEffect, useState } from "react";
+import { useCart } from "../../state/useCart";
 import styles from "../../styles/components/Counter.module.css";
 
 export const Counter = ({ cant, maxValue, slug }) => {
   const [items, setItems] = useState(cant);
   const [action, setAction] = useState("");
-  const [cartContext, setCartContext] = useContext(shopingCartContext);
-  const { products } = cartContext;
+  const { updateQuantity: updateCartQuantity } = useCart();
 
   useEffect(() => {
     if (cant <= maxValue) {
@@ -15,17 +14,11 @@ export const Counter = ({ cant, maxValue, slug }) => {
   }, [cant, maxValue]);
 
   useEffect(() => {
-    if(action === 'add' || action === 'substract'){
-      const updatedProducts = products.map((el) =>
-        el.slug === slug ? { ...el, selected: items } : el
-      );
-      console.log(updatedProducts);
-      setCartContext({
-        ...cartContext,
-        products: updatedProducts
-      })
+    if (action === "add" || action === "substract") {
+      updateCartQuantity(slug, items);
     }
-  }, [items, action, slug, products, setCartContext, cartContext]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [items, action, slug]);
 
   const updateQuantity = (action) => {
     switch (action) {

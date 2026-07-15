@@ -1,33 +1,13 @@
-import { useContext } from "react";
+import { useCart } from "../../state/useCart";
 import { DetailSlider, TableData } from "../../components";
-import { shopingCartContext } from "../../state/context";
 import Styles from "../../styles/pages/ProductDetail.module.css";
 
 const ProductDetail = ({ data }) => {
-  const [cartContext, setCartContext] = useContext(shopingCartContext);
+  const { addToCart } = useCart();
 
   const images = data?.IMAGEN?.length
     ? data.IMAGEN.map((img) => img.url)
     : ["/icons/default-wheel.svg"];
-
-  const addToCart = () => {
-    const { products, quantity } = cartContext;
-    const exist = products.find((product) => product.slug === data.slug);
-    const moreTires = products.map((product) =>
-      product.slug === data.slug
-        ? { ...product, selected: product.selected + 1 }
-        : product
-    );
-
-    setCartContext({
-      open: true,
-      products:
-        exist !== undefined
-          ? [...moreTires]
-          : [...products, { ...data, selected: 1 }],
-      quantity: quantity + 1,
-    });
-  };
 
   return (
     <div className="container">
@@ -46,7 +26,7 @@ const ProductDetail = ({ data }) => {
             <p className={Styles.disclaimer}>
               *Este producto no incluye el Rin
             </p>
-            <button onClick={addToCart}>Agregar al carrito</button>
+            <button onClick={() => addToCart(data)}>Agregar al carrito</button>
           </div>
         </div>
       </section>

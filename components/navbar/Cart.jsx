@@ -1,36 +1,19 @@
 import Image from "next/image";
-import { useContext, useEffect } from "react";
 
 import styles from "../../styles/components/Cart.module.css";
 import { Button, CartItem } from "../";
-import { shopingCartContext } from "../../state/context";
-import { formatPrice, numberToCurrency } from "../../helpers/helpers";
+import { useCart } from "../../state/useCart";
+import { numberToCurrency } from "../../helpers/helpers";
 
 export const Cart = () => {
-  const [cartContext, setCartContext] = useContext(shopingCartContext);
-  const { open: openedCart } = cartContext;
-
-  const { quantity: totalProducts, products } = cartContext;
-
-  const handleOpenCloseCart = (isOpen) => {
-    setCartContext({
-      ...cartContext,
-      open: isOpen,
-    });
-  };
-
-  const handleGetTotal = () => {
-    const total = products
-      .map(({ selected, PRECIO }) => selected * formatPrice(PRECIO))
-      .reduce((acc, curr) => acc + curr, 0);
-    return numberToCurrency(total);
-  };
+  const { open: openedCart, products, totalQuantity, totalPrice, setOpen } =
+    useCart();
 
   return (
     <>
       <div
         className={styles.shopping__cart}
-        onClick={() => handleOpenCloseCart(true)}
+        onClick={() => setOpen(true)}
       >
         <Image
           src="/icons/cart.svg"
@@ -38,7 +21,7 @@ export const Cart = () => {
           width={30}
           height={30}
         />
-        <span className={styles.badge}>{totalProducts}</span>
+        <span className={styles.badge}>{totalQuantity}</span>
       </div>
       <div
         className={`${openedCart ? `${styles["active"]} 'fadeIn'` : null} ${
@@ -49,7 +32,7 @@ export const Cart = () => {
         <div className={styles.cart__popUp__content}>
           <span
             className={styles.cart__close}
-            onClick={() => handleOpenCloseCart(false)}
+            onClick={() => setOpen(false)}
           ></span>
           <h2>Tus Compras</h2>
           <div className={styles.cart__data}>
@@ -58,8 +41,8 @@ export const Cart = () => {
             ))}
           </div>
           <div className={styles.cart__prices}>
-            <p id="countsLabel">Subtotal ({totalProducts} Productos)</p>
-            <h3 id="subtotalLabel">${handleGetTotal()}</h3>
+            <p id="countsLabel">Subtotal ({totalQuantity} Productos)</p>
+            <h3 id="subtotalLabel">${numberToCurrency(totalPrice)}</h3>
             <Button
               href="/checkout"
               label="Comprar"
